@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - SwapBits",
+      "request": "launch",
+      "mainClass": "SwapBits",
+      "projectName": "epi_java"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ClosestIntSameWeight",
+      "request": "launch",
+      "mainClass": "epi.ClosestIntSameWeight"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - TwoSum",
+      "request": "launch",
+      "mainClass": "epi.TwoSum"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - SwapBits",
+      "request": "launch",
+      "mainClass": "epi.SwapBits"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - CountBits",
+      "request": "launch",
+      "mainClass": "epi.CountBits"
+    }
+  ]
+}
