@@ -10,7 +10,26 @@ public class DutchNationalFlag {
 
   public static void dutchFlagPartition(int pivotIndex, List<Color> A) {
     // TODO - you fill in here.
+    Color pivot = A.get(pivotIndex);
+    swap(A, 0, pivotIndex);
+    int i = 0, l = 0, h = A.size()-1;
+    while (i <= h) {
+      int cmp = A.get(i).compareTo(pivot);
+      if (cmp > 0) {
+        swap(A, i, h--);
+      } else if (cmp < 0) {
+        swap(A, i++, l++);
+      } else {
+        i++;
+      }
+    }
     return;
+  }
+
+  private static void swap(List<Color> A, int i, int j) {
+    Color temp = A.get(i);
+    A.set(i, A.get(j));
+    A.set(j, temp);
   }
   @EpiTest(testDataFile = "dutch_national_flag.tsv")
   public static void dutchFlagPartitionWrapper(TimedExecutor executor,

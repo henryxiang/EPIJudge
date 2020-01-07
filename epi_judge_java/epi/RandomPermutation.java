@@ -7,12 +7,23 @@ import epi.test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+
 public class RandomPermutation {
 
   public static List<Integer> computeRandomPermutation(int n) {
     // TODO - you fill in here.
-    return Collections.emptyList();
+    if (n == 0) return Collections.emptyList();
+    List<Integer> list = new ArrayList<>();
+    for (int i = 0; i < n; i++) list.add(i);
+    Random random = new Random();
+    for (int i = n; i > 1; i--) {
+      int j = random.nextInt(i);
+      Collections.swap(list, i-1, j);
+    }
+    return list;
   }
+
   private static int factorial(int n) {
     return n <= 1 ? 1 : n * factorial(n - 1);
   }

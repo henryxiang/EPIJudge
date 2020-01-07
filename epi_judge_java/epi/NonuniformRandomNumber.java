@@ -14,8 +14,27 @@ public class NonuniformRandomNumber {
   nonuniformRandomNumberGeneration(List<Integer> values,
                                    List<Double> probabilities) {
     // TODO - you fill in here.
-    return 0;
+    double[] prob = new double[probabilities.size()];
+    prob[0] = probabilities.get(0);
+    for (int i = 1; i < probabilities.size(); i++) {
+      prob[i] = prob[i-1] + probabilities.get(i);
+    }
+    double r = Math.random();
+    int p = binarySearch(prob, r, 0, prob.length-1);
+    if (p == -1) return -1;
+    return values.get(p);
   }
+
+  private static int binarySearch(double[] prob, double n, int l, int h) {
+    if (l > h) return -1;
+    int m = (l + h) / 2;
+    double low = m == 0 ? 0.0 : prob[m-1];
+    double high = prob[m];
+    if (n < low) return binarySearch(prob, n, l, m-1);
+    else if (n >= high) return binarySearch(prob, n, m+1, h);
+    else return m;
+  }
+
   private static boolean nonuniformRandomNumberGenerationRunner(
       TimedExecutor executor, List<Integer> values, List<Double> probabilities)
       throws Exception {

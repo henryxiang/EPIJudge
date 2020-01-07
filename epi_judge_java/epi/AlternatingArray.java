@@ -9,7 +9,19 @@ import java.util.List;
 public class AlternatingArray {
   public static void rearrange(List<Integer> A) {
     // TODO - you fill in here.
+    for (int i = 1; i < A.size(); i++) {
+      if (
+        i % 2 != 0 && A.get(i) < A.get(i-1) ||
+        i % 2 == 0 && A.get(i) > A.get(i-1)
+      ) swap(A, i, i-1);
+    }
     return;
+  }
+
+  private static void swap(List<Integer> A, int i, int j) {
+    int temp = A.get(i);
+    A.set(i, A.get(j));
+    A.set(j, temp);
   }
   private static void checkOrder(List<Integer> A) throws TestFailure {
     for (int i = 0; i < A.size(); ++i) {

@@ -68,7 +68,7 @@ run({
         Compute rows in Pascal's Triangle
             Java: PascalTriangle.java
     Strings
-        Bootcamp: Strings},
+        Bootcamp: Strings
         Interconvert strings and integers
             Java: StringIntegerInterconversion.java
         Base conversion
