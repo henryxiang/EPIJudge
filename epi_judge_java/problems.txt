@@ -68,7 +68,6 @@ run({
         Compute rows in Pascal's Triangle
             Java: PascalTriangle.java
     Strings
-        Bootcamp: Strings
         Interconvert strings and integers
             Java: StringIntegerInterconversion.java
         Base conversion
@@ -127,7 +126,6 @@ run({
         Add list-based integers
             Java: IntAsListAdd.java
     Stacks and Queues
-        Bootcamp: Stacks and Queues},
         Implement a stack with max API
             Java: StackWithMax.java
         Evaluate RPN expressions
@@ -147,7 +145,6 @@ run({
         Implement a queue with max API
             Java: QueueWithMax.java
     Binary Trees
-        Bootcamp: Binary Trees},
         Test if a binary tree is height-balanced
             Java: IsTreeBalanced.java
         Test if a binary tree is symmetric
@@ -181,7 +178,6 @@ run({
         Compute the right sibling tree
             Java: TreeRightSibling.java
     Heaps
-        Bootcamp: Heaps},
         Merge sorted files
             Java: SortedArraysMerge.java
         Sort an increasing-decreasing array
@@ -195,7 +191,6 @@ run({
         Compute the k largest elements in a max-heap
             Java: KLargestInHeap.java
     Searching
-        Bootcamp: Searching},
         Search a sorted array for first occurrence of k
             Java: SearchFirstKey.java
         Search a sorted array for entry equal to its index
@@ -243,7 +238,6 @@ run({
             Java: CollatzChecker.java
         Implement a hash function for chess}
     Sorting
-        Bootcamp: Sorting},
         Compute the intersection of two sorted arrays
             Java: IntersectSortedArrays.java
         Merge two sorted arrays
@@ -269,7 +263,6 @@ run({
         Compute a salary threshold
             Java: FindSalaryThreshold.java
     Binary Search Trees
-        Bootcamp: Binary Search Trees},
         Test if a binary tree satisfies the BST property
             Java: IsTreeABst.java
         Find the first key greater than a given value in a BST
@@ -292,7 +285,6 @@ run({
         Add credits
             Java: AddingCredits.java
     Recursion
-        Bootcamp: Recursion},
         The Towers of Hanoi problem
             Java: Hanoi.java
         Generate all nonattacking placements of n-Queens
@@ -342,7 +334,6 @@ run({
         Find the longest nondecreasing subsequence
             Java: LongestNondecreasingSubsequence.java
     Greedy Algorithms and Invariants
-        Bootcamp: Greedy Algorithms and Invariants},
         Compute an optimum assignment of tasks
             Java: TaskPairing.java
         Schedule to minimize waiting time
@@ -361,7 +352,6 @@ run({
         Compute the largest rectangle under the skyline
             Java: LargestRectangleUnderSkyline.java
     Graphs
-        Bootcamp: Graphs},
         Search a maze
             Java: SearchMaze.java
         Paint a Boolean matrix
@@ -379,7 +369,6 @@ run({
         Team photo day - 2
             Java: MaxTeamsInPhotograph.java
     Honors Class
-        Bootcamp: Honors Class},
         Compute the greatest common divisor
             Java: Gcd.java
         Find the first missing positive entry

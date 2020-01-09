@@ -1,7 +1,7 @@
 package epi;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
-public class SubstringMatch {
+public class SubstringMatchRabinKarp {
   @EpiTest(testDataFile = "substring_match.tsv")
 
   // Returns the index of the first character of the substring if found, -1
@@ -42,7 +42,7 @@ public class SubstringMatch {
   public static void main(String[] args) {
     System.exit(
         GenericTest
-            .runFromAnnotations(args, "SubstringMatch.java",
+            .runFromAnnotations(args, "SubstringMatchRabinKarp.java",
                                 new Object() {}.getClass().getEnclosingClass())
             .ordinal());
   }

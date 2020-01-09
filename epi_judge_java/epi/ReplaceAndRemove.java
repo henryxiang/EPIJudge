@@ -8,8 +8,27 @@ public class ReplaceAndRemove {
 
   public static int replaceAndRemove(int size, char[] s) {
     // TODO - you fill in here.
-    return 0;
+    int w = 0, d = 0;
+    for (int i = 0; i < size; i++) {
+      char c = s[i];
+      if (c == 'a') d++;
+      if (c != 'b') s[w++] = c;
+    }
+    int n = w + d;
+    int last = w - 1;
+    w = n - 1;
+    for (int i = last; i >= 0 ; i--) {
+      char c = s[i];
+      if (c == 'a') {
+        s[w--] = 'd';
+        s[w--] = 'd';
+      } else {
+        s[w--] = c;
+      }
+    }
+    return n;
   }
+
   @EpiTest(testDataFile = "replace_and_remove.tsv")
   public static List<String>
   replaceAndRemoveWrapper(TimedExecutor executor, Integer size, List<String> s)
