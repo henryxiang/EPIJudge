@@ -5,8 +5,11 @@ public class SearchInList {
 
   public static ListNode<Integer> searchList(ListNode<Integer> L, int key) {
     // TODO - you fill in here.
-    return null;
+    ListNode<Integer> n = L;
+    while(n != null && n.data != key) n = n.next;
+    return n;
   }
+
   @EpiTest(testDataFile = "search_in_list.tsv")
   public static int searchListWrapper(ListNode<Integer> L, int key) {
     ListNode<Integer> result = searchList(L, key);
