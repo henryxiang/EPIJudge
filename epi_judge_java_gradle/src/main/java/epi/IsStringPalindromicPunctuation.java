@@ -1,0 +1,27 @@
+package epi;
+import epi.test_framework.EpiTest;
+import epi.test_framework.GenericTest;
+public class IsStringPalindromicPunctuation {
+  @EpiTest(testDataFile = "is_string_palindromic_punctuation.tsv")
+
+  public static boolean isPalindrome(String s) {
+    // TODO - you fill in here.
+    if (s.isEmpty()) return true;
+    String t = s.toLowerCase();
+    int i = 0, j = s.length()-1;
+    while (i <= j) {
+      while (i < j && !Character.isLetterOrDigit(t.charAt(i))) i++;
+      while (i < j && !Character.isLetterOrDigit(t.charAt(j))) j--;
+      if (t.charAt(i++) != t.charAt(j--)) return false;
+    }
+    return true;
+  }
+
+  public static void main(String[] args) {
+    System.exit(
+        GenericTest
+            .runFromAnnotations(args, "IsStringPalindromicPunctuation.java",
+                                new Object() {}.getClass().getEnclosingClass())
+            .ordinal());
+  }
+}
