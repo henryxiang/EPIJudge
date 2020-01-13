@@ -7,7 +7,16 @@ public class EvenOddListMerge {
 
   public static ListNode<Integer> evenOddMerge(ListNode<Integer> L) {
     // TODO - you fill in here.
-    return null;
+    if (L == null || L.next == null) return L;
+    ListNode<Integer> headEven = L, headOdd = L.next, tailEven = headEven, tailOdd = headOdd;
+    while (tailOdd != null && tailOdd.next != null) {
+      tailEven.next = tailOdd.next;
+      tailEven = tailEven.next;
+      tailOdd.next = tailEven.next;
+      tailOdd = tailOdd.next;
+    }
+    tailEven.next = headOdd;
+    return headEven;
   }
 
   public static void main(String[] args) {

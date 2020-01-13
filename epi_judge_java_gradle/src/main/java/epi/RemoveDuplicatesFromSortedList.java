@@ -6,7 +6,14 @@ public class RemoveDuplicatesFromSortedList {
 
   public static ListNode<Integer> removeDuplicates(ListNode<Integer> L) {
     // TODO - you fill in here.
-    return null;
+    ListNode<Integer> node = L;
+    while (node != null && node.next != null) {
+      while (node.next != null && node.data == node.next.data) {
+        node.next = node.next.next;
+      }
+      node = node.next;
+    }
+    return L;
   }
 
   public static void main(String[] args) {
