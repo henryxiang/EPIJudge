@@ -3,21 +3,28 @@ import epi.test_framework.EpiTest;
 import epi.test_framework.EpiUserType;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
-import java.util.List;
-import java.util.NoSuchElementException;
+
+import java.util.*;
 
 public class QueueWithMax {
+  Queue<Integer> data = new LinkedList<>();
+  Deque<Integer> max = new LinkedList<>();
   public void enqueue(Integer x) {
     // TODO - you fill in here.
+    data.add(x);
+    while(!max.isEmpty() && max.getLast().intValue() < x) max.removeLast();
+    max.addLast(x);
     return;
   }
   public Integer dequeue() {
     // TODO - you fill in here.
-    return 0;
+    Integer i = data.remove();
+    if (max.getFirst().intValue() == i) max.removeFirst();
+    return i;
   }
   public Integer max() {
     // TODO - you fill in here.
-    return 0;
+    return max.getFirst();
   }
   @EpiUserType(ctorParams = {String.class, int.class})
   public static class QueueOp {

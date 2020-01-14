@@ -4,21 +4,48 @@ import epi.test_framework.EpiUserType;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 import java.util.List;
-public class CircularQueue {
+import java.util.NoSuchElementException;
 
+public class CircularQueue {
+  private static final int EXPANSION_FACTOR = 2;
   public static class Queue {
-    public Queue(int capacity) {}
+    Integer[] data;
+    int size, head, tail;
+    public Queue(int capacity) {
+      data = new Integer[capacity];
+      size = 0;
+      head = 0;
+      tail = 0;
+    }
     public void enqueue(Integer x) {
       // TODO - you fill in here.
+      if (data.length == size) {
+        Integer[] temp = new Integer[data.length*EXPANSION_FACTOR];
+        int it = head;
+        for (int i = 0; i < size; i++) {
+          temp[i] = data[it];
+          it = (it+1) % size;
+        }
+        data = temp;
+        head = 0;
+        tail = size;
+      }
+      data[tail] = x;
+      tail = (tail + 1) % data.length;
+      size++;
       return;
     }
     public Integer dequeue() {
       // TODO - you fill in here.
-      return 0;
+      if (size == 0) throw new NoSuchElementException("Empty queue");
+      Integer v = data[head];
+      head = (head + 1) % data.length;
+      size--;
+      return v;
     }
     public int size() {
       // TODO - you fill in here.
-      return 0;
+      return size;
     }
     @Override
     public String toString() {

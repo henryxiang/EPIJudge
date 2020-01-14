@@ -3,28 +3,36 @@ import epi.test_framework.EpiTest;
 import epi.test_framework.EpiUserType;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
+
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 public class StackWithMax {
 
   public static class Stack {
+    Deque<Integer> data = new LinkedList<>(), max = new LinkedList<>();
     public boolean empty() {
       // TODO - you fill in here.
-      return true;
+      return data.isEmpty();
     }
     public Integer max() {
       // TODO - you fill in here.
-      return 0;
+      return max.peekLast();
     }
     public Integer pop() {
       // TODO - you fill in here.
-      return 0;
+      if (max.peekLast().intValue() == data.peekLast().intValue()) max.removeLast();
+      return data.removeLast();
     }
     public void push(Integer x) {
       // TODO - you fill in here.
+      data.addLast(x);
+      if (max.size() == 0 || x >= max.peekLast())max.addLast(x);
       return;
     }
   }
+
   @EpiUserType(ctorParams = {String.class, int.class})
   public static class StackOp {
     public String op;
