@@ -7,8 +7,23 @@ public class SuccessorInTree {
 
   public static BinaryTree<Integer> findSuccessor(BinaryTree<Integer> node) {
     // TODO - you fill in here.
-    return null;
+    if (node == null) return null;
+    if (node.right == null) return findMinParent(node);
+    else return findMinChild(node.right);
   }
+
+  private static BinaryTree<Integer> findMinChild(BinaryTree<Integer> node) {
+    BinaryTree<Integer> min = node;
+    while (min != null && min.parent != null && min.left != null) min = min.left;
+    return min;
+  }
+
+  private static BinaryTree<Integer> findMinParent(BinaryTree<Integer> node) {
+    BinaryTree<Integer> min = node;
+    while (min.parent != null && min.parent.left != min) min = min.parent;
+    return min.parent;
+  }
+
   @EpiTest(testDataFile = "successor_in_tree.tsv")
   public static int findSuccessorWrapper(TimedExecutor executor,
                                          BinaryTree<Integer> tree, int nodeIdx)

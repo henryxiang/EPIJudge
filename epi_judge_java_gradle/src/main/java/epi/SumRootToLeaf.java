@@ -6,7 +6,14 @@ public class SumRootToLeaf {
 
   public static int sumRootToLeaf(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
-    return 0;
+    return sumRootToLeaf(tree, 0);
+  }
+
+  private static int sumRootToLeaf(BinaryTreeNode<Integer> tree, int partial) {
+    if (tree == null) return 0;
+    partial = partial*2 + tree.data;
+    if (tree.left == null && tree.right == null) return partial;
+    return sumRootToLeaf(tree.left, partial) + sumRootToLeaf(tree.right, partial);
   }
 
   public static void main(String[] args) {

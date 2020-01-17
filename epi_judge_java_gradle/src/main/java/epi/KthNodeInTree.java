@@ -18,11 +18,18 @@ public class KthNodeInTree {
     }
   }
 
-  public static BinaryTreeNode<Integer>
-  findKthNodeBinaryTree(BinaryTreeNode<Integer> tree, int k) {
+  public static BinaryTreeNode<Integer> findKthNodeBinaryTree(BinaryTreeNode<Integer> tree, int k) {
     // TODO - you fill in here.
-    return null;
+    if (tree == null || k > tree.size) return null;
+    if (size(tree.left) + 1 == k) return tree;
+    else if (size(tree.left) + 1 > k) return findKthNodeBinaryTree(tree.left, k);
+    else return findKthNodeBinaryTree(tree.right, k - size(tree.left) - 1);
   }
+
+  private static int size(BinaryTreeNode<Integer> tree) {
+    return tree == null ? 0 : tree.size;
+  }
+
   public static BinaryTreeNode<Integer>
   convertToTreeWithSize(BinaryTree<Integer> original) {
     if (original == null)
