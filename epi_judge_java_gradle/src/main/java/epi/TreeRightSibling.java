@@ -15,8 +15,21 @@ public class TreeRightSibling {
 
   public static void constructRightSibling(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
-    return;
+    while (tree != null && tree.left != null) {
+      linkLowerLevelSiblings(tree);
+      tree = tree.left;
+    }
   }
+
+  private static void linkLowerLevelSiblings(BinaryTreeNode<Integer> iter) {
+    while (iter != null) {
+      iter.left.next = iter.right;
+      if (iter.next != null) iter.right.next = iter.next.left;
+      iter = iter.next;
+    }
+  }
+
+
   private static BinaryTreeNode<Integer>
   cloneTree(BinaryTree<Integer> original) {
     if (original == null) {
